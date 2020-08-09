@@ -141,7 +141,7 @@ canvas {
 
 #game_info {
     display: none;
-    width: 100vw;
+    width: 80vw;
     padding: 5ch;
     flex-direction: row;
     text-align: center;
