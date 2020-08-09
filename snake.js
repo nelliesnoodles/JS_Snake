@@ -1,8 +1,8 @@
 // JavaScript source code for game egg
 // Coded and written by: Nellie Tobey
-/* This file sets all the necessary items that enable snake_engine.js to work 
- * after the tardis image is clicked by user. Most mechanics of the game are in 
- * the snake_engine.js file.  This is all Vanilla JavaScript.  No imports or 
+/* This file sets all the necessary items that enable snake_engine.js to work
+ * after the tardis image is clicked by user. Most mechanics of the game are in
+ * the snake_engine.js file.  This is all Vanilla JavaScript.  No imports or
  * external libraries are needed for either file to work.
  * See snake_engine for more game mechanics functions.
  */
@@ -48,7 +48,7 @@ function set_game_DOM() {
     blueboxdiv = document.getElementById('moving_image')
     mycanvas = document.getElementById('snake')
     ctx = mycanvas.getContext("2d")
-   
+
     set_button_listeners()
 }
 function show_game() {
@@ -145,7 +145,7 @@ function EXIT() {
 
 function set_gameListeners() {
     let element = document.getElementById('timespace')
-    element.addEventListener('click', show_game)   
+    element.addEventListener('click', show_game)
     let info = document.getElementById('expand_game_info')
     info.addEventListener('click', show_instructions)
     let closeinfo = document.getElementById("close_info_box")
@@ -153,7 +153,7 @@ function set_gameListeners() {
 }
 
 
-/* BORDERS - Could not eliminate a strange padding created between the coordinates on canvas and 
+/* BORDERS - Could not eliminate a strange padding created between the coordinates on canvas and
  * the border of canvas.  Drawing the borders was the fix.
  */
 function draw_borders() {
@@ -186,7 +186,7 @@ function draw_borders() {
 function check_key(e) {
     e = e || window.event;
 
-    
+
 
     let max_x = mycanvas.width - 30
     let min_x = 30
@@ -197,14 +197,14 @@ function check_key(e) {
     if (e.code === 'Escape') {
         EXIT()
     }
-   
+
     if (e.code === 'ArrowUp') {
-      
+
         if (user_y > 0) {
             //game.move_player(0, -1)
             set_dirx(0)
             set_diry(-1)
-            
+
         }
     }
     else if (e.code === 'ArrowDown') {
@@ -212,7 +212,7 @@ function check_key(e) {
             //game.move_player(0, 1)
             set_dirx(0)
             set_diry(1)
-            
+
         }
     }
     else if (e.code === 'ArrowRight') {
@@ -230,14 +230,33 @@ function check_key(e) {
         }
     }
     else {
-        // does player loose tail if they bump the wall ? score?  
+        // does player loose tail if they bump the wall ? score?
     }
 
 
 }
 
+function move_left() {
+  set_dirx(-1)
+  set_diry(0)
+}
+
+function move_up() {
+  set_dirx(0)
+  set_diry(-1)
+}
+
+function move_down() {
+  set_dirx(0)
+  set_diry(1)
+}
+
+function move_right() {
+  set_dirx(1)
+  set_diry(0)
+}
+
 window.addEventListener('load', (event) => {
-   
+
     set_gameListeners()
 });
-
