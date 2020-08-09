@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="Nellie Tobey">
+    <meta name="description" content="A Vanilla JavaScript 'snake' game. ">
+    <!-- JAVASCRIPT-->
+    <script type="text/javascript" src="snake_engine.js"></script>
+    <script type="text/javascript" src="snake.js"></script>
+    <!-- CSS Stylesheets-->
+    <link rel="stylesheet" href="profile.css" />
+    <!-- EGG STYLES -->
+    <link rel="stylesheet" href="snake.css" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <!-- Font awesome SVG-->
+    <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+
+
+    <title>Snake</title>
+    <body>
+        <nav class='noodle_nav' id="my_nav">
+            <a href="#">The code in Github</a>
+        </nav>
+            <main id="main"></main>
+            <div id="egg">
+                <div id="moving_image">
+                    <image id="timespace" src="thicktardis.png" alt="clicking on this image will lead to a snake style game hidden on the page."></image>
+                </div>
+                <div id="game_div">
+                    <div id="game_buttons">
+                        <button id="play" aria-label="play snake">PLAY</button>
+                        <button id="pause" aria-label="pause game">PAUSE</button>
+                        <button id="exit" aria-label="exit game">EXIT</button>
+                    </div>
+                    <hr class="seperator" />
+                    <div id="game_over">
+                        <h1 style="font-size: 2em; text-shadow: 1px 1px 2px red;"> Exterminated! </h1>
+                    </div>
+                    <header id="Instructions">Instructions <i class="fas fa-plus" title="click to see expanded directions" id="expand_game_info"></i></header>
+                    <p id="game_info">Fly the ship and avoiding the plunger faces.<br />grab the white squares for points, and watch the tail grow.<br /> Points are lost when the ship gets into a corner, or it hits a plunger face.<i class="far fa-window-close" title="click to close the game info box" id="close_info_box"></i></p>
+                    <div class="heart-center">
+                        <i id="first" class="fas fa-heart fa-3x"></i>
+                        <i id="second" class="fas fa-heart fa-3x"></i>
+                        <i id="third" class="fas fa-heart fa-3x"></i>
+                    </div>
+                    <hr class="seperator" />
+                    <div id="screen" class="game_box">
+                        <div class="flex-row align-center dark">
+                            <h1>SCORE:</h1><h1 id="score">0000</h1>
+                        </div>
+                        <canvas id="snake"></canvas>
+                    </div> <!--close screen,  game_box-->
+                </div> <!-- close game_div-->
+            </div> <!-- close egg -->
+
+    </body>
+    <footer id="footer" class="display_cell"> &#169; Nellie Tobey 2020 </footer>
+</html>
