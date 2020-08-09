@@ -1,0 +1,182 @@
+﻿/* tardis egg element, hidden on click for game */
+#moving_image {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+#timespace {
+    width: 30px;
+    height: 40px;
+    animation-name: egganimation;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+
+@keyframes egganimation {
+    from {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.3;
+    }
+}
+/* Parent element to all game items in body*/
+#game_div {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    font-family: monospace;
+    background-color: black;
+    color: whitesmoke;
+    z-index: 42;
+    padding: 0;
+    margin: 0;
+    align-content: center;
+    justify-content: center;
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+
+
+/* parent element to snake( aka canvas)*/
+#screen {
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    background-size: contain;
+    background: url('galaxy.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    z-index: 43;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+/* the canvas id=snake*/
+#snake {
+    border: 12px groove silver;
+    margin: 0;
+    padding: 0 !important;
+}
+
+canvas {
+    display: block;
+    border: 4px solid black;
+    width: 95vw;
+    height: 80vh;
+    background: rgba(27, 16, 70, 0.30);
+    padding: 0;
+    margin: 0;
+   
+}
+
+.heart-center {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    width: 100vw;
+
+
+}
+.fa-heart {
+    color: mediumvioletred;
+}
+/*rgb(22 16 68 / 27%) transparent background for canvas*/
+/* ---  BUTTONS -interactive items ----*/
+#game_buttons {
+    display: flex;
+    margin-top: 1ch;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.dark {
+    background: radial-gradient(#2809888c, transparent);
+}
+#play {
+    padding: 1ch;
+    border: 1px double pink;
+    /* box-shadow: 1px 1px grey, -1px -1px blue; */
+    border-radius: 20%;
+    margin: 1ch;
+}
+#pause {
+    padding: 1ch;
+    border: 1px double pink;
+    /* box-shadow: 1px 1px grey, -1px -1px blue; */
+    border-radius: 20%;
+    margin: 1ch;
+}
+#exit {
+    padding: 1ch;
+    border: 1px double pink;
+    /* box-shadow: 1px 1px grey, -1px -1px blue; */
+    border-radius: 20%;
+    margin: 1ch;
+}
+
+#game_info {
+    display: none;
+    width: 100vw;
+    padding: 5ch;
+    flex-direction: row;
+    text-align: center;
+    position: fixed;
+    z-index: 48;
+
+}
+
+#game_over {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    top: 10vh;
+    position: absolute;
+    z-index: 49;
+    background: radial-gradient(black, transparent);
+    color: navajowhite;
+
+
+}
+.align-center {
+    align-content: center;
+    justify-content: center;
+    margin:0;
+    padding:0;
+    width: inherit;
+}
+#mobile_buttons {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 5;
+    margin-top: -15vh;
+    width: inherit;
+}
