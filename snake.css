@@ -147,6 +147,9 @@ canvas {
     text-align: center;
     position: fixed;
     z-index: 48;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
 
 }
 
