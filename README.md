@@ -1,6 +1,6 @@
 # JS_Snake
 # code author: Nellie Tobey
-![Gif of the snake game. It's a little old english Police box that picks up squares to grow a blue tail. Game is over when the player looses all three lives.]('game.gif')
+![Gif of the snake game. It's a little old english Police box that picks up squares to grow a blue tail. Game is over when the player looses all three lives.](https://github.com/nelliesnoodles/JS_Snake/blob/master/game.gif)
 
 A Vanilla JavaScript snake game.
 
