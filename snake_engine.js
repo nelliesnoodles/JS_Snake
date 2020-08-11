@@ -3,7 +3,7 @@
 
 // game engine for egg
 /* ctx and canvas are set in snake.js when user clicks on the small
- * tardis image just above the footer.  Once this is working and deployed, 
+ * tardis image just above the footer.  Once this is working and deployed,
  * my hope is to reconstruct it in such a way that anyone can use it to build
  * their own, with documentation and plenty of comments to help along the way.
  */
@@ -35,9 +35,9 @@ let game = {
 
 class Collision {
     /*
-     * item_x, item_y  
+     * item_x, item_y
      * item2_x, item2_y
-     * Check if the coordinates are within range of each other, or collide     * 
+     * Check if the coordinates are within range of each other, or collide     *
      */
     constructor(item_x, item_y, item2_x, item2_y) {
         this.item_x = item_x
@@ -154,11 +154,11 @@ function set_enemys() {
 
 function set_x() {
     let max = mycanvas.width -10
-   
+
     let speed = game.speed
     let dir = game.dirx
     let temp = game.user_x
-   
+
     let newx = temp + (speed * dir)
     if (newx < 0) {
         game.user_x = 10
@@ -171,20 +171,20 @@ function set_x() {
     }
 
 
-    if (newx > 0 && newx < max) {       
+    if (newx > 0 && newx < max) {
         game.user_x = newx
     }
-    
+
     else {
         game.dirx = 0
-    }    
+    }
 }
 
 
 
 function set_y() {
     let max = mycanvas.height - 30
-   
+
     let speed = game.speed
     let dir = game.diry
     let temp = game.user_y
@@ -201,20 +201,20 @@ function set_y() {
     if (newy > 0 && newy < max) {
         game.user_y = newy
     }
-    
+
     else {
         set_diry(0)
     }
-    
+
 }
 
 function set_dirx(newdirx) {
     game.dirx = newdirx
-    
+
 }
 
 function set_diry(newdiry) {
-    game.diry = newdiry 
+    game.diry = newdiry
 }
 
 
@@ -245,6 +245,7 @@ function reset() {
     updateScore()
     clearscreen()
     hide_game_over()
+    reset_hearts()
 }
 
 function off() {
@@ -274,7 +275,7 @@ function clearitem(coord_in) {
     let w = coord_in[2]
     let h = coord_in[3]
     //test
-    
+
     if (ctx) {
         ctx.clearRect(x, y, w, h)
     }
@@ -285,10 +286,10 @@ function clearitem(coord_in) {
 
 function check_collision(x, y, x2, y2) {
     /* The set range should reflect the speed of the user item
-     * I have ten hardcoded in, but if a mechanic to increase speed is added, this may need to 
+     * I have ten hardcoded in, but if a mechanic to increase speed is added, this may need to
      * be adjusted to reflect the change.
      */
-      
+
     let collide = new Collision(x, y, x2, y2)
     collide.set_range(10, 15)
     if (collide.check_collide_x() && collide.check_collide_y()) {
@@ -296,7 +297,7 @@ function check_collision(x, y, x2, y2) {
         //console.log(`y=${y}, foody = ${y2}`, 'collision true')
         return true
     }
-   
+
     return false
 
 }
@@ -385,17 +386,17 @@ function which_xy(loc_x, loc_y) {
 }
 
 //-------- PLAYER -----//
-    
+
 function create_player(){
-            
-        
+
+
     let player = new Image()
     player.src = "tardis4.png"
     let old_coords = null
     let crossPATH = false
     let food_locs = game.food_loc
     let exterminate = false
-    
+
 
     if (game.player_loc != null) {
         let obj = game.player_loc
@@ -413,7 +414,7 @@ function create_player(){
                 let DX = D_coords[0]
                 let DY = D_coords[1]
                 let hit = check_collision(x1, y1, DX, DY)
-                
+
                 if (hit && dalek.on_map) {
                     exterminate = true
                     dalek.on_map = false
@@ -427,17 +428,17 @@ function create_player(){
                     updateScore()
 
                 }
-            }; 
+            };
         }
-        
-       
-        
+
+
+
 
 
         // if there is a food item, check for collision
         if (food_locs) {
             let food = food_locs.get_coords()
-           
+
             let x = food[0]
             let y = food[1]
             crossPATH = check_collision(x, y, x1, y1)
@@ -445,7 +446,7 @@ function create_player(){
             //remove food items, empty list
             //add to score
             if (crossPATH == true) {
-                game.max_tail += 1               
+                game.max_tail += 1
                 game.score += 200
                 updateScore()
                 let oldfood = game.food_loc
@@ -462,14 +463,14 @@ function create_player(){
     draw_daleks()
     //draw the new player position
     player.onload = () => {
-        
+
 
         let w = game.playerW
         let h = game.playerH
         let ux = game.user_x
         let uy = game.user_y
         let player_in = new Location(h, w, ux, uy)
-       
+
         game.player_loc = player_in
         //console.log(game.player_loc)
 
@@ -481,13 +482,13 @@ function create_player(){
         }
         //console.log('player loaded:', ux, uy)
     }
-        
+
     if (!crossPATH) {
 
         draw_food()
     }
 
-    
+
     if (old_coords) {
         let tails = game.tail_loc
         let max = tails.length
@@ -501,7 +502,7 @@ function create_player(){
             newW = diff
             newH = 30
         }
-        
+
         if (game.dirx == 0) {
             newH = diff
             newW = 20
@@ -511,20 +512,20 @@ function create_player(){
             newy += 10
         }
 
-       
+
 
         if (game.diry == 0 && game.dirx == 0) {
             if (game.score > 0) {
                 game.score -= 100
             }
-            
+
         }
-        
-        
-        
+
+
+
         var newcoords = [newx, newy, newW, newH]
         if (max == 0) {
-           
+
             tails.push(newcoords)
         }
         else if (max > 0) {
@@ -538,12 +539,12 @@ function create_player(){
             }
         }
 
-        
-        draw_tail()
-       
-       
 
-    }        
+        draw_tail()
+
+
+
+    }
 }
 
 
@@ -554,20 +555,20 @@ function draw_daleks() {
     let enemys = game.enemy_loc
     let dalek = new Image
     dalek.src = 'yellowD.png'
-   
+
     if (enemys.length > 0) {
         dalek.onload = () => {
             for (i in enemys) {
                 let obj = enemys[i]
                 let coords = obj.get_coords()
                 if (obj.on_map) {
-                    
+
                     ctx.drawImage(dalek, coords[0], coords[1], obj.width, obj.height)
                 }
             };
 
-        }       
-        
+        }
+
     }
 
 }
@@ -604,25 +605,25 @@ function draw_food() {
 
         let newloc = which_xy(currentx, currenty)
         let newobj = new Location(10, 10, newloc[0], newloc[1])
-        
+
         game.food_loc = newobj
         //let lognew = game.food_loc
-       
+
 
 
 
         ctx.fillStyle = 'green'
         ctx.fillRect(newloc[0], newloc[1], 10, 10)
-        
+
     }
 
     else if (player && food != null) {
 
-        
+
         let stored_loc = food.get_coords()
         ctx.fillStyle = 'white'
         ctx.fillRect(stored_loc[0], stored_loc[1], 10, 10)
-       
+
 
 
     }
@@ -631,10 +632,10 @@ function draw_food() {
         game.food_loc = first
         ctx.fillStyle = 'white'
         ctx.fillRect(10, 10, 10, 10)
-        
-    
-    }   
-    
+
+
+    }
+
  };
 
 // ---- TAIL -----//
@@ -648,14 +649,14 @@ function draw_tail() {
         let y = coords[1]
         let w = coords[2]
         let h = coords[3]
-       
+
         ctx.fillStyle = 'blue'
         //let mycanvas = document.getElementById('snake')
 
         ctx.fillRect(x, y, w, h)
     };
 
-    
+
 
     };
 
@@ -666,12 +667,12 @@ function updateScore() {
 
 //-----  MOVE -----//
 function update() {
-    
+
     /* These keep the blue user object moving
      * the direction is changed in snake.js with check_key(e)
      * upon hitting the boundaries of the canvas, the directions are set to 0
      * and no movement is made on either or both x and y axis.
      */
     set_x()
-    set_y()   
+    set_y()
     }

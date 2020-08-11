@@ -186,6 +186,7 @@ canvas {
 .mobile_buttons {
     display: flex;
     height: 10vh;
+    margin-bottom: 20px;
     align-content: center;
     justify-content: space-between;
     position: absolute;
