@@ -153,15 +153,20 @@ function set_enemys() {
 }
 
 function set_x() {
-    let max = mycanvas.width -10
+    let max = mycanvas.width -20
 
     let speed = game.speed
     let dir = game.dirx
     let temp = game.user_x
 
     let newx = temp + (speed * dir)
+
+    if(newx > max){
+        newx = max
+    }
+
     if (newx < 0) {
-        game.user_x = 10
+        game.user_x = 0
     }
     if (game.dirx < 0) {
         max = mycanvas.width
@@ -171,7 +176,7 @@ function set_x() {
     }
 
 
-    if (newx > 0 && newx < max) {
+    if (newx >= 0 && newx <= max) {
         game.user_x = newx
     }
 
