@@ -166,16 +166,23 @@ function draw_borders() {
     ctx.moveTo(9, 9);
     ctx.lineTo(border_edge_x, 9);
     ctx.stroke();
-    // --- TOP => bottom left
+
+
+    /* --- TOP => bottom left
     ctx.beginPath();
     ctx.moveTo(9, 9);
     ctx.lineTo(9, border_edge_y);
     ctx.stroke();
+
     //Top right => bottom right
     ctx.beginPath();
     ctx.moveTo(border_edge_x, 9);
     ctx.lineTo(border_edge_x, border_edge_y);
     ctx.stroke();
+
+    */
+
+
     //--- bottom left => bottom right
     ctx.beginPath();
     ctx.moveTo(9, border_edge_y);
@@ -260,3 +267,5 @@ window.addEventListener('load', (event) => {
 
     set_gameListeners()
 });
+
+
