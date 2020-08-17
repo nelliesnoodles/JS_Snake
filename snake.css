@@ -6,7 +6,10 @@
     justify-content: center;
 }
 
-
+/* GITHUB only needed css */
+a {
+    padding: 3ch;
+}
 #timespace {
     width: 30px;
     height: 40px;
