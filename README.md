@@ -6,7 +6,7 @@ A Vanilla JavaScript snake game.
 
 The game has two scripts.  
 
-
+This game does have a bug I haven't fixed.  It is resolved in the Angular version, but I haven't come back to fix this one yet.  That first 'pellet' of food will get the TARDIS stuck until you move it right, which pushes you into a Dalek.  I'll fix it eventually 'One hopes to herself quietly'. 
 
 When I set about to build this game, it was for an Easter Egg in my portfolio.  I realized after many hours of scrolling to my egg, clicking and waiting, that I could take the bit of code I already had, and build it separately first.  When it was working, mostly properly (Eeeepp!) I added to the django portfolio.  Modifications are necessary for this to work with Django.  Image sources for the player/enemy object must be loaded from the back end, to the front with some trickery.  By adding a <script> in the Django html page, I could declare the images it would send through to the browswer and Javascript could then use them from the front. 
 
